@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  background-image: url('./assets/aaa.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+html {
+  margin: 0;
+  background-image: url('./assets/aaa.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
