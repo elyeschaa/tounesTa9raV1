@@ -1,10 +1,22 @@
 const router = require("express").Router();
 const Book = require("../models/Book");
 
-router.post("/createBook", async (req, res) => {
+const upload = require("../middleware/upload.js");
+
+router.post("/createBook", upload.single("bookImg"), async (req, res) => {
   try {
-    const { author, title, date, type, isNew, price } = req.body;
-    const book = await Book.create({ author, title, date, type, isNew, price });
+    const { author, title, date, type, isNewBook, description, price } =
+      req.body;
+    const book = await Book.create({
+      bookImg: req.file.filename,
+      author,
+      title,
+      date,
+      type,
+      isNewBook,
+      price,
+      description,
+    });
     res.status(200).json({ status: true, message: "book created", data: book });
   } catch (err) {
     res.status(500).json({ status: false, messsage: err });
