@@ -7,6 +7,7 @@ import "./Home.css";
 
 const Home = ({ books, loading }) => {
   return (
+    <div>
     <div className="cards-container">
       {loading ? (
         <h1>loading</h1>
@@ -45,6 +46,31 @@ const Home = ({ books, loading }) => {
           );
         })
       )}
+      
+    </div>
+    <div>
+   
+    <div
+      id="cover"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <h1>Welcome</h1>
+      <p style={{ fontSize: "50px", color: "brown" }}>
+        `A reader lives a thousand lifes before he dies..`
+      </p>
+      {/* <div id="circle"></div> */}
+    </div>
+      </div>
+      <div className="img">
+        
+        
+      </div>
+
     </div>
   );
 };
