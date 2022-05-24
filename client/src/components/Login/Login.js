@@ -2,7 +2,7 @@ import React from "react";
 import { FaBook } from "react-icons/fa";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "./Redux/Actions/actions";
+import { login } from "../Redux/Actions/actions";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
@@ -13,9 +13,7 @@ const Login = () => {
     setNewUser({ ...newUser, [e.target.name]: e.target.value });
   };
   const handleLogin = () => {
-    dispatch(login({newUser,history}));
-    
-    
+    dispatch(login({ newUser, history }));
   };
 
   return (

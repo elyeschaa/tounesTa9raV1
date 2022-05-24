@@ -32,6 +32,14 @@ router.get("/books", async (req, res) => {
   }
 });
 
+router.get("/someBooks", async (req, res) => {
+  try {
+    const books = await Book.find({});
+  } catch (err) {
+    res.status(500).json({ status: false, messsage: err });
+  }
+});
+
 router.get("/book/:id", async (req, res) => {
   try {
     const { id } = req.params;

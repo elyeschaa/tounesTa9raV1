@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FaBook } from "react-icons/fa";
-import { register } from "./Redux/Actions/actions";
+import { register } from "../Redux/Actions/actions";
 import { useDispatch } from "react-redux";
+
 const Register = () => {
   const dispatch = useDispatch();
   const history = useHistory();

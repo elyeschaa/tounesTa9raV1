@@ -13,15 +13,12 @@ export const register = (user) => async (dispatch) => {
 };
 export const login = (payload) => async (dispatch) => {
   try {
-    console.log(payload)
     await axios
       .post("/api/user/login", payload.newUser)
       .then((res) => {
-        console.log(res.data);
         localStorage.setItem("token", res.data.token);
-        payload.history.push("/home");
+        payload.history.push("/");
         payload.history.go(0);
-
       })
       .catch((err) => console.log(err));
   } catch (error) {

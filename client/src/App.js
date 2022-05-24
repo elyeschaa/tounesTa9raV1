@@ -1,19 +1,20 @@
-import "./App.css";
-import Nav from "./components/Nav";
-import Cover from "./components/Cover";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Register from "./components/Register";
-import Login from "./components/Login";
-// import Home from "./components/User/Landing/Home";
-
-import isAuth from "./middlewares/isAuth";
-
-import Home from "./pages/Home/Home.js";
-// import BookDescription from "./pages/BookDescription/BookDescription.js";
-
+//Packages
 import { useEffect, useState } from "react";
-
+import { Switch, Route } from "react-router-dom";
 import axios from "axios";
+
+//Components
+import Auteurcelebre from "./components/Auteur/Auteurcelebre";
+import Register from "./components/Register/Register";
+import Footer from "./components/Footer/Footer";
+import Login from "./components/Login/Login";
+import Nav from "./components/Nav/Nav";
+
+//Pages
+import Home from "./pages/Home/Home";
+import BookDescription from "./pages/BookDescription/BookDescription";
+
+import "./App.css";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -26,6 +27,7 @@ function App() {
         setBooks(res.data.data);
         setLoading(false);
       })
+
       .catch((err) => console.log(err));
   }, []);
 
@@ -33,21 +35,22 @@ function App() {
     <div className="App">
       <Nav />
       <Switch>
-        {/* <Route path="/bookDescription" render={() => <BookDescription />} /> */}
+        <Route exact path="/ateurCelebre" render={() => <Auteurcelebre />} />
         <Route
           exact
           path="/"
           render={() => <Home books={books} loading={loading} />}
         />
-      </Switch>
 
-      {/* {isAuth() ? <Redirect to="/home" /> : <Redirect to="/cover" />}
-      <Switch>
+        <Route
+          path="/bookDescription/:id"
+          render={() => <BookDescription books={books} />}
+        />
+
         <Route path="/register" render={() => <Register />} />
         <Route path="/login" render={() => <Login />} />
-        <Route path="/cover" render={() => <Cover />} />
-        <Route path="/home" render={() => <Home />} />
-      </Switch> */}
+      </Switch>
+      
     </div>
   );
 }
