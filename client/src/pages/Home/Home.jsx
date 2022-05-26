@@ -6,9 +6,11 @@ import Bienfait from "../../components/Bienfait/Bienfait";
 
 import "./Home.css";
 import Footer from "../../components/Footer/Footer";
+import ReactStars from "react-rating-stars-component";
 
 const Test = ({ books }) => {
   const bookList = books.slice(0, 4);
+  
 
   return (
     <div>
@@ -19,7 +21,8 @@ const Test = ({ books }) => {
       <main>
         {bookList.map((book) => {
           return (
-            <div className="books">
+            <div key={book.id} 
+            className="books">
               <div>
                 <img
                   src={`http://localhost:3000/${book.bookImg}`}
@@ -30,7 +33,18 @@ const Test = ({ books }) => {
               <div class="descp">
                 <h2 class="book-name">{book.title}</h2>
                 <h3 class="author">by {book.author}</h3>
-                <p class="info">{book.description}</p>
+                <ReactStars
+                  count={5}
+                  size={24}
+                  isHalf={true}
+                  edit={false}
+                  value={book.rating}
+                  emptyIcon={<i className="far fa-star"></i>}
+                  halfIcon={<i className="fa fa-star-half-alt"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                  activeColor="#ffd700"
+                />
+                , ,<p class="info">{book.description}</p>
                 <Link to={`/bookDescription/${book._id}`}>
                   <button type="submit">See the Book</button>
                 </Link>
@@ -161,9 +175,28 @@ const Test = ({ books }) => {
           </div>
         </div>
       </div>
-      <div></div>
+      <h1 id="titreb">les bienfaits de la lecture</h1>
+      <div id="haha">
 
-      <Bienfait />
+      {/* <Bienfait /> */}
+      
+      <p id="para">
+        -Stimulations des connexions du cerveau.-
+        <br />
+        -Détente et diminution du stress.-
+        <br />
+        -Amélioration de l'empathie.-
+        <br />
+        -Apaisement des douleurs chroniques.-
+        <br />
+        -Amélioration de l'humeur.-
+        <br />
+        -Protection de la mémoire et des capacités de raisonnement.-
+      </p>
+      
+      <img id="imgb" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/282254371_433209494806040_8943982080150375055_n.png?stp=dst-png_p206x206&_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=TSf52PZ45nEAX_wlHc2&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKa_1YuRztD0BiSLUfiLNLpYt9o8rJ4PKJMnhZh6rcJ6w&oe=62B23DD3" alt="" />
+      </div>
+
       <Footer />
     </div>
   );

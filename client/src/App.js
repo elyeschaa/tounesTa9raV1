@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
 import Nav from "./components/Nav/Nav";
+import BookCard from "./components/BookCard/BookCard";
 
 //Pages
 import Home from "./pages/Home/Home";
@@ -19,6 +20,8 @@ import "./App.css";
 function App() {
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState([]);
+  const [input, setInput] = useState("");
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     axios
@@ -31,11 +34,31 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
 
+  const handleRating = (newRating) => {
+    setRating(newRating);
+  };
+
+  const handleInput = (e) => {
+    e.preventDefault();
+    setInput(e.target.value);
+  };
+
   return (
     <div className="App">
-      <Nav />
+      <Nav
+        input={input}
+        handleInput={handleInput}
+        rating={rating}
+        handleRating={handleRating}
+      />
       <Switch>
         <Route exact path="/ateurCelebre" render={() => <Auteurcelebre />} />
+        <Route
+          path="/bookList"
+          render={() => (
+            <BookCard books={books} input={input} rating={rating} />
+          )}
+        />
         <Route
           exact
           path="/"
@@ -50,7 +73,6 @@ function App() {
         <Route path="/register" render={() => <Register />} />
         <Route path="/login" render={() => <Login />} />
       </Switch>
-      
     </div>
   );
 }

@@ -459,5 +459,27 @@ body {
   }
 }
 #lecture {
-  color: #1d442c;
+  color: rgb(0, 0, 0);
+}
+#haha {
+  display: flex;
+  justify-content: space-between;
+}
+#imgb {
+  width: 750px;
+  height: 450px;
+}
+#titreb {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  color: rgb(0, 0, 0);
+}
+#para {
+  font-weight: 500;
+  font-size: xx-large;
+  font-family:serif;
+  font-style: italic;
+  padding: 5PX;
+  color: rgb(0, 0, 0);
 }

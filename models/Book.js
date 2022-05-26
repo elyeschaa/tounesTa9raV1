@@ -36,6 +36,10 @@ const Book = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  rating: {
+    type: Number,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("book", Book);

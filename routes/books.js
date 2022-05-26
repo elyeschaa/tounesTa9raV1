@@ -5,7 +5,7 @@ const upload = require("../middleware/upload.js");
 
 router.post("/createBook", upload.single("bookImg"), async (req, res) => {
   try {
-    const { author, title, date, type, isNewBook, description, price } =
+    const { author, title, date, type, isNewBook, description, price, rating } =
       req.body;
     const book = await Book.create({
       bookImg: req.file.filename,
@@ -16,6 +16,7 @@ router.post("/createBook", upload.single("bookImg"), async (req, res) => {
       isNewBook,
       price,
       description,
+      rating,
     });
     res.status(200).json({ status: true, message: "book created", data: book });
   } catch (err) {

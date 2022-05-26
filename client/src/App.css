@@ -4,7 +4,7 @@
   text-align: center;
   font-family: "Philosopher", sans-serif;
   height: 100%;
-  background-color: #eeeeee;
+  background-color: #f6ebeb;
 }
 .link {
   text-decoration: none;
@@ -221,7 +221,8 @@ body {
 .card[data-background="color"] .card-footer,
 .card[data-background="color"] small,
 .card[data-background="color"] .content a {
-  color: #ffffff;
+  color: #1ca70a;
+  background-color:rgb(255,243,225);
 }
 .card.card-just-text .content {
   padding: 50px 65px;

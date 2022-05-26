@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
+import ReactStars from "react-rating-stars-component";
 import { Navbar, Container } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 
 import isAuth from "../../middlewares/isAuth";
 
-const Nav = () => {
+const Nav = ({ input, handleInput, rating, handleRating }) => {
   const [logged, setLogged] = useState(false);
   const history = useHistory();
 
@@ -14,6 +15,10 @@ const Nav = () => {
 
   const ateurNavigate = () => {
     history.push("/ateurCelebre");
+  };
+
+  const bookListNavigate = () => {
+    history.push("/bookList");
   };
 
   const logout = () => {
@@ -27,7 +32,7 @@ const Nav = () => {
       {logged ? (
         <Navbar bg="black" variant="dark">
           <Container id="container">
-            <Navbar.Brand href="/">
+            <Navbar.Brand>
               <img
                 alt=""
                 src="http://smartmobilestudio.com/wp-content/uploads/2012/06/leather-book-preview.png"
@@ -36,8 +41,28 @@ const Nav = () => {
                 className="d-inline-block align-top"
               />
               TounesTa9ra
+              <div onClick={() => history.push("/bookList")}>
+                <input
+                  style={{ marginLeft: "400px" }}
+                  placeholder="search for a book here"
+                  value={input}
+                  onChange={handleInput}
+                />
+                <ReactStars
+                  count={5}
+                  value={rating}
+                  onChange={handleRating}
+                  size={32}
+                  activeColor="#ffd700"
+                  emptyIcon={<i className="far fa-star"></i>}
+                  fullIcon={<i className="fa fa-star"></i>}
+                />
+              </div>
             </Navbar.Brand>
             <div className="my-links">
+              <Link>
+                <h5 onClick={bookListNavigate}>Book List</h5>
+              </Link>
               <Link>
                 <h5 onClick={ateurNavigate}>Ateur Celebres</h5>
               </Link>

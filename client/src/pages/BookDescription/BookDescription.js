@@ -17,7 +17,7 @@ function BookDescription({ books }) {
       <div className="row">
         <div className="col">
           <div className="card m-2 shadow p-3 mb-5 bg-white rounded">
-            <h1>{book.title}</h1>
+            {/* <h1>{book.title}</h1> */}
             <img
               src={`http://localhost:3000/${book.bookImg}`}
               class="card__image"
