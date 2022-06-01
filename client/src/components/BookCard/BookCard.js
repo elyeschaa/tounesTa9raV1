@@ -26,16 +26,10 @@ const BookCard = ({ books, input, rating }) => {
   }, [input, rating]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div id="booksContainer">
       {filtredBooks.map((book) => {
         return (
-          <div key={book._id} class="container">
+          <div key={book._id} class="container" style={{ width: "260px" }}>
             <div class="cards">
               <div class="card one">
                 <div class="details">

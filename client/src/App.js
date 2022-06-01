@@ -14,6 +14,7 @@ import BookCard from "./components/BookCard/BookCard";
 //Pages
 import Home from "./pages/Home/Home";
 import BookDescription from "./pages/BookDescription/BookDescription";
+import Checkout from "./pages/Checkout/Checkout";
 
 import "./App.css";
 
@@ -22,6 +23,7 @@ function App() {
   const [books, setBooks] = useState([]);
   const [input, setInput] = useState("");
   const [rating, setRating] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     axios
@@ -50,6 +52,7 @@ function App() {
         handleInput={handleInput}
         rating={rating}
         handleRating={handleRating}
+        cartItems={cartItems}
       />
       <Switch>
         <Route exact path="/ateurCelebre" render={() => <Auteurcelebre />} />
@@ -64,15 +67,31 @@ function App() {
           path="/"
           render={() => <Home books={books} loading={loading} />}
         />
-
         <Route
           path="/bookDescription/:id"
-          render={() => <BookDescription books={books} />}
+          render={() => (
+            <BookDescription
+              books={books}
+              setCartItems={setCartItems}
+              cartItems={cartItems}
+            />
+          )}
         />
-
+        Quantity
+        <Route
+          path="/checkout"
+          render={() => (
+            <Checkout
+              books={books}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
+          )}
+        />
         <Route path="/register" render={() => <Register />} />
         <Route path="/login" render={() => <Login />} />
       </Switch>
+      <Footer />
     </div>
   );
 }

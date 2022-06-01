@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 
 import isAuth from "../../middlewares/isAuth";
 
-const Nav = ({ input, handleInput, rating, handleRating }) => {
+const Nav = ({ input, handleInput, rating, handleRating, cartItems }) => {
   const [logged, setLogged] = useState(false);
   const history = useHistory();
 
@@ -21,11 +21,17 @@ const Nav = ({ input, handleInput, rating, handleRating }) => {
     history.push("/bookList");
   };
 
+  const cartNavigate = () => {
+    history.push("/checkout");
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     history.push("/cover");
     history.go(0);
   };
+
+  console.log("besssssemmmmmmmm", cartItems);
 
   return (
     <div>
@@ -65,6 +71,13 @@ const Nav = ({ input, handleInput, rating, handleRating }) => {
               </Link>
               <Link>
                 <h5 onClick={ateurNavigate}>Ateur Celebres</h5>
+              </Link>
+              <Link onClick={cartNavigate}>
+                <li className="nav-item">
+                  <a className="nav-link" href="/cart">
+                    CART : {cartItems.length} Items
+                  </a>
+                </li>
               </Link>
               <Link>
                 <h5 onClick={logout}>Logout</h5>

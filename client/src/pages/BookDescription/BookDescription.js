@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
+
 import "./BookDescription.css";
 
-function BookDescription({ books }) {
+function BookDescription({ books, cartItems, setCartItems }) {
   const [quantity, setquantity] = useState(1);
   const [book, setBook] = useState(books);
 
@@ -11,6 +13,10 @@ function BookDescription({ books }) {
   useEffect(() => {
     setBook(books.find((book) => book._id === id));
   }, [id]);
+
+  const addProduct = () => {
+    setCartItems([...cartItems, { ...book, quantity: 1 }]);
+  };
 
   return (
     <div>
@@ -46,7 +52,9 @@ function BookDescription({ books }) {
             <hr />
             <h3>Description : {book.description}</h3>
             <hr />
-            <button className="btn">ADD TO CART</button>
+            <button onClick={addProduct} className="btn">
+              ADD TO CART
+            </button>
           </div>
           <hr />
         </div>

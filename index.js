@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
@@ -8,6 +10,7 @@ const MONGO_URI = process.env.MONGO_URI;
 app.use(express.json());
 app.use("/api", require("./routes"));
 app.use(express.static("public"));
+// app.use(cors());
 
 mongoose
   .connect(MONGO_URI)

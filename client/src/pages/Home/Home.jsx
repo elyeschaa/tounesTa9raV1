@@ -194,10 +194,10 @@ const Test = ({ books }) => {
         -Protection de la mémoire et des capacités de raisonnement.-
       </p>
       
-      <img id="imgb" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/282254371_433209494806040_8943982080150375055_n.png?stp=dst-png_p206x206&_nc_cat=104&ccb=1-7&_nc_sid=aee45a&_nc_ohc=TSf52PZ45nEAX_wlHc2&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AVKa_1YuRztD0BiSLUfiLNLpYt9o8rJ4PKJMnhZh6rcJ6w&oe=62B23DD3" alt="" />
+      <img id="imgb" src="https://cdn.dribbble.com/users/2367833/screenshots/7816190/books-_-tv.gif" alt="" />
       </div>
 
-      <Footer />
+    
     </div>
   );
 };
