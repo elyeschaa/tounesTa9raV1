@@ -1,7 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { placeOrder } from "../../components/Redux/Actions/orderAction";
 import StripeCheckout from "react-stripe-checkout";
+import jwt_decode from "jwt-decode";
+
+import axios from "axios";
 
 export default function Checkout({ cartItems, setCartItems }) {
+  const { id } = jwt_decode(localStorage.getItem("token"));
+  const dispatch = useDispatch();
+  const [subtotal, setSubTotal] = useState(0);
+  // const orderstate = useSelector((state) => state.placeOrderReducer);
+
+  useEffect(() => {
+    cartItems.reduce((acc, el) => {
+      acc = el.price * el.quantity;
+      setSubTotal(acc);
+      console.log(acc);
+    }, 0);
+  }, [cartItems]);
+
+  console.log(subtotal);
+
+  function tokenHander(token) {
+    dispatch(placeOrder(token, subtotal, id, cartItems));
+    console.log(token);
+  }
+
   const incrementQty = (id) => {
     const book = cartItems.find((book) => book._id === id);
     setCartItems([
@@ -79,11 +104,11 @@ export default function Checkout({ cartItems, setCartItems }) {
         </div>
 
         <div className="col-md-4 text-right">
-          {/* <h2>Total : {subtotal} USD</h2> */}
+          <h2>Total : {subtotal} USD</h2>
           <StripeCheckout
-            // amount={subtotal * 100}
+            amount={subtotal * 100}
             shippingAddress
-            // token={tokenHander}
+            token={tokenHander}
             stripeKey={
               "pk_test_51KeRR0JO42TJpmFAh6Lk7BIPUEQzHvwnMyXe0orAooVUyPOAS0Zbg29ZfCJX2qtsxPgE32UXTqqa0cjCvUyIJY8200UlMiXlqb"
             }

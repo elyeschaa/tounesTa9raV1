@@ -30,12 +30,12 @@ const BookCard = ({ books, input, rating }) => {
       {filtredBooks.map((book) => {
         return (
           <div key={book._id} class="container" style={{ width: "260px" }}>
-            <div class="cards">
+            <div class="cards" style={{bg:""}}>
               <div class="card one">
                 <div class="details">
                   <div class="content">
                     <h2>{book.title}</h2>
-                    <p>This is the description.</p>
+                    <p>{book.author}</p>
                     <ReactStars
                       count={5}
                       size={24}
@@ -48,7 +48,7 @@ const BookCard = ({ books, input, rating }) => {
                       activeColor="#ffd700"
                     />
                     <Link class="button" to={`/bookDescription/${book._id}`}>
-                      SEE MORE
+                    VOIR PLUS
                     </Link>
                   </div>
                 </div>

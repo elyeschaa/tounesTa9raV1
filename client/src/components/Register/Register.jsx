@@ -19,10 +19,10 @@ const Register = () => {
   return (
     <div className="register">
       <h1>
-        Welcome To Our <span style={{ color: "brown" }}>Community</span>{" "}
+        Welcome To Our <span style={{ color: "#9fd3c7" }}>Community</span>{" "}
       </h1>
       <h1>
-        <FaBook style={{ color: "brown" }} />
+        <FaBook style={{ color: "#9fd3c7" }} />
       </h1>
       <div className="my-input">
         <label>FirstName</label>
@@ -42,11 +42,11 @@ const Register = () => {
         <input type="password" name="password" onChange={userRegister} />
       </div>
       <div className="last">
-        <button onClick={handleRegister}>Confirm</button>
+        <button style={{backgroundColor:"#9fd3c7"}} onClick={handleRegister}>Confirm</button>
         <h5>Already a member ? </h5>
 
         <h5>
-          <Link to="/login" style={{ color: "brown", textDecoration: "none" }}>
+          <Link to="/login" style={{ color: "#9fd3c7", textDecoration: "none" }}>
             Sign In
           </Link>
         </h5>

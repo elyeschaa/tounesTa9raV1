@@ -25,6 +25,7 @@ function BookDescription({ books, cartItems, setCartItems }) {
           <div className="card m-2 shadow p-3 mb-5 bg-white rounded">
             {/* <h1>{book.title}</h1> */}
             <img
+              style={{ width: "200px", height: "300px" }}
               src={`http://localhost:3000/${book.bookImg}`}
               class="card__image"
               alt=""

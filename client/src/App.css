@@ -4,11 +4,12 @@
   text-align: center;
   font-family: "Philosopher", sans-serif;
   height: 100%;
-  background-color: #f6ebeb;
+  background-color: #ffffff;
 }
 .link {
   text-decoration: none;
   color: rgb(18, 16, 16);
+  
 }
 .tab .heading {
   margin: 25px;
@@ -117,7 +118,7 @@
   height: 300px;
 }
 .h2 {
-  color: rgb(49, 229, 229);
+  color: rgb(88, 49, 229);
   width: 900px;
 }
 #img1 {
@@ -221,8 +222,8 @@ body {
 .card[data-background="color"] .card-footer,
 .card[data-background="color"] small,
 .card[data-background="color"] .content a {
-  color: #1ca70a;
-  background-color:rgb(255,243,225);
+  color: #ffffff;
+  background-color:#1e549f;
 }
 .card.card-just-text .content {
   padding: 50px 65px;

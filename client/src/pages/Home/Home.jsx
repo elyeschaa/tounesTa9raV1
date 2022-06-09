@@ -58,23 +58,23 @@ const Test = ({ books }) => {
           “La lecture encombre la mémoire et empêche de penser.”
         </h1>
 
-        <div>
-          <div class="container bootstrap snippets bootdeys">
+        <div >
+          <div  class="container bootstrap snippets bootdeys" >
             <div class="row">
               <div class="col-md-4 col-sm-6 content-card">
                 <div class="card-big-shadow">
-                  <div
+                  <div 
                     class="card card-just-text"
                     data-background="color"
                     data-color="blue"
                     data-radius="none"
                   >
-                    <div class="content">
+                    <div class="content" >
                       <h4 class="title">{/* <a href="#">Blue Card</a> */}</h4>
                       <p class="description">
                         Les lecteurs sont les véritables événements de la vie..{" "}
                       </p>
-                      <h6 class="category">-Jorge Luis Borges-</h6>
+                      <h6 class="category" style={{color:"white"}}>-Jorge Luis Borges-</h6>
                     </div>
                   </div>
                 </div>
@@ -175,23 +175,26 @@ const Test = ({ books }) => {
           </div>
         </div>
       </div>
+    
+
+      
       <h1 id="titreb">les bienfaits de la lecture</h1>
       <div id="haha">
 
       {/* <Bienfait /> */}
       
       <p id="para">
-        -Stimulations des connexions du cerveau.-
+        -Stimulations des connexions du cerveau.
         <br />
-        -Détente et diminution du stress.-
+        -Détente et diminution du stress.
         <br />
-        -Amélioration de l'empathie.-
+        -Amélioration de l'empathie.
         <br />
-        -Apaisement des douleurs chroniques.-
+        -Apaisement des douleurs chroniques.
         <br />
-        -Amélioration de l'humeur.-
+        -Amélioration de l'humeur.
         <br />
-        -Protection de la mémoire et des capacités de raisonnement.-
+        -Protection de la mémoire et des capacités de raisonnement.
       </p>
       
       <img id="imgb" src="https://cdn.dribbble.com/users/2367833/screenshots/7816190/books-_-tv.gif" alt="" />

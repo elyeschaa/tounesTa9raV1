@@ -2,7 +2,6 @@
   "name": "frontend-tounesta9ra",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/icons": "^4.11.3",
     "@testing-library/jest-dom": "^5.16.4",
@@ -14,8 +13,9 @@
     "jquery": "^3.6.0",
     "jsonwebtoken": "^8.5.1",
     "jws": "^4.0.0",
+    "jwt-decode": "^3.1.2",
     "react": "^18.0.0",
-    "react-bootstrap": "^2.3.0",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^18.0.0",
     "react-icons": "^4.3.1",
     "react-player": "^2.10.1",
@@ -52,5 +52,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

@@ -473,13 +473,17 @@ body {
   display: flex;
   justify-content: center;
   padding: 5px;
+  font-style: oblique;
+  
   color: rgb(0, 0, 0);
 }
 #para {
   font-weight: 500;
-  font-size: xx-large;
-  font-family:serif;
+  font-size:xx-large;
+  
   font-style: italic;
   padding: 5PX;
   color: rgb(0, 0, 0);
+  font-family:monospace;
+  font-stretch: narrower;
 }

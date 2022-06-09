@@ -15,6 +15,7 @@ import BookCard from "./components/BookCard/BookCard";
 import Home from "./pages/Home/Home";
 import BookDescription from "./pages/BookDescription/BookDescription";
 import Checkout from "./pages/Checkout/Checkout";
+import Addbook from "./components/Modal/Addbook";
 
 import "./App.css";
 
@@ -24,7 +25,16 @@ function App() {
   const [input, setInput] = useState("");
   const [rating, setRating] = useState(0);
   const [cartItems, setCartItems] = useState([]);
-
+  const [show, setShow] = useState(false);
+  // const [bookImg, setBookImg] = useState("");
+  // const [newBook, setNewBook] = useState({
+  //   author: "",
+  //   title: "",
+  //   date: "",
+  //   type: "",
+  //   price: 0,
+  //   rating: 0,
+  // });
   useEffect(() => {
     axios
       .get("/api/books/books")
@@ -44,7 +54,17 @@ function App() {
     e.preventDefault();
     setInput(e.target.value);
   };
+  const handleModal = () => {
+    setShow(!show);
+  };
+  // const handleAddBook = (e) => {
+  //   setNewBook({ ...newBook, [e.target.name]: e.target.value });
+  // };
 
+  // const handleSetBookImg = (e) => {
+  //   setBookImg(e.target.files[0]);
+  // };
+ 
   return (
     <div className="App">
       <Nav
@@ -53,6 +73,15 @@ function App() {
         rating={rating}
         handleRating={handleRating}
         cartItems={cartItems}
+        handleModal={handleModal}
+      />
+      <Addbook
+        show={show}
+        handleModal={handleModal}
+        // newBook={newBook}
+        // handleAddBook={handleAddBook}
+        // handleSetBookImg={handleSetBookImg}
+        // bookImg={bookImg}
       />
       <Switch>
         <Route exact path="/ateurCelebre" render={() => <Auteurcelebre />} />

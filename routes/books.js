@@ -1,25 +1,54 @@
 const router = require("express").Router();
 const Book = require("../models/Book");
+const path = require("path");
+const multer = require("multer");
 
-const upload = require("../middleware/upload.js");
+// const upload = require("../middleware/upload.js");
+const fileUploadPaths = {
+  FILE_UPLOAD_PATH: path.join(__dirname, "..", "client/public/uploads"),
+};
 
-router.post("/createBook", upload.single("bookImg"), async (req, res) => {
+let storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, fileUploadPaths.FILE_UPLOAD_PATH);
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname.toLowerCase().replace(/ /g, "_"));
+  },  
+});
+
+const postFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith("image")) {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+let uploadPost = multer({
+  storage: storage,
+  fileFilter: postFilter,
+});
+router.post("/createBook", uploadPost.single("bookImg"), async (req, res) => {
   try {
+    // console.log(req.body);
     const { author, title, date, type, isNewBook, description, price, rating } =
       req.body;
-    const book = await Book.create({
-      bookImg: req.file.filename,
-      author,
-      title,
-      date,
-      type,
-      isNewBook,
-      price,
-      description,
-      rating,
-    });
-    res.status(200).json({ status: true, message: "book created", data: book });
+    console.log(req.file);
+    // const book = await Book.create({
+    //   bookImg: req.file.filename,
+    //   author,
+    //   title,
+    //   date,
+    //   type,
+    //   isNewBook,
+    //   price,
+    //   description,
+    //   rating,
+    // });
+    // res.status(200).json({ status: true, message: "book created", data: book });
   } catch (err) {
+    console.log(err, "errrrrrrrrrrrrrrrrrr");
     res.status(500).json({ status: false, messsage: err });
   }
 });
